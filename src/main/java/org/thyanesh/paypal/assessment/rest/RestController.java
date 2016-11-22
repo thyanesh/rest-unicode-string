@@ -44,7 +44,7 @@ public class RestController {
         this.restService = restService;
     }
 
-    @RequestMapping(value = "/save", method = RequestMethod.POST)
+    @RequestMapping(value = "/save", method = RequestMethod.POST,produces={"application/json; charset=UTF-8"})
    	public @ResponseBody String save( @RequestParam(value="inputString", required=true) String inputString) {
        	try {
                return getRestService().save(inputString);
@@ -57,7 +57,7 @@ public class RestController {
            }    
    	}
     
-    @RequestMapping(value = "/lookUp/{stringId}", method = RequestMethod.GET)
+    @RequestMapping(value = "/lookUp/{stringId}", method = RequestMethod.GET,produces={"application/json; charset=UTF-8"})
    	public @ResponseBody String lookUp(@PathVariable String stringId, HttpServletResponse response) throws IOException {
     	try {
     		return getRestService().lookUp(stringId);
