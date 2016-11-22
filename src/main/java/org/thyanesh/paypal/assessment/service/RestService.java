@@ -85,12 +85,12 @@ public class RestService implements IRestService, Serializable {
 	private static int recursiveUnicodeSum(String str, int pos,int unicodeSum){
 		if(pos < str.length()){
 		    if(pos==0){
-		    	unicodeSum = unicodeSum+(int)str.charAt(pos);
+		    	unicodeSum = unicodeSum+str.codePointAt(pos);
 		    }else{
-		    	if(str.charAt(pos-1)!= str.charAt(pos))
-		    		unicodeSum = unicodeSum+((int)str.charAt(pos-1) + (int)str.charAt(pos));
-		    	if(str.charAt(pos-1)== str.charAt(pos))
-		    		unicodeSum = unicodeSum+((int)str.charAt(pos));
+		    	if(str.codePointAt(pos-1)!= str.codePointAt(pos))
+		    		unicodeSum = unicodeSum+(str.codePointAt(pos-1) + str.codePointAt(pos));
+		    	if(str.codePointAt(pos-1)== str.codePointAt(pos))
+		    		unicodeSum = unicodeSum+(str.codePointAt(pos));
 		    }
 		} 
 		if(pos > str.length()){
